@@ -13,6 +13,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import pages.MainPage;
+import properties.ConfigProvider;
 
 import java.time.Duration;
 
@@ -33,7 +34,7 @@ public abstract class BaseTest {
     //go to main page before each test methods
     @BeforeMethod
     public void goMainPage() {
-        driver.get("https://the-internet.herokuapp.com/");
+        driver.get(ConfigProvider.URL);
         mainPage = new MainPage(driver);
     }
 

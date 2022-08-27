@@ -20,6 +20,7 @@ public class BasicAuthPage {
         this.driver = driver;
     }
 
+    //переработать метод логина, т.к. нужно использовать ConfigProvider
     public void logIn() {
        String url = "https://" + USERNAME +":" + PASSWORD +"@"+ "the-internet.herokuapp.com/basic_auth";
        driver.get(url);
