@@ -44,12 +44,11 @@ public abstract class BaseTest {
         driver.quit();
     }
 
-    /*public void waitElement(WebElement element) {
+    /*public void waitDownloadingOfElement(By locator) {
         FluentWait fluentWait = new FluentWait(driver).withTimeout(Duration.ofSeconds(10))
                 .pollingEvery(Duration.ofSeconds(1))
                 .ignoring(NoSuchElementException.class);
-        fluentWait.until(ExpectedConditions.visibilityOfElementLocated();
+        fluentWait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }*/
-    // пока не врубаюсь как сделать так, чтобы этот метод был универсальным,
-    // в visibilityOfElementLocated требуется тип данных By
+    // запилить этот метод в BasePage.class и вынести остальную повторяющуюся логику
 }

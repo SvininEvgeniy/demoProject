@@ -8,11 +8,20 @@ import properties.ConfigProvider;
 public class LoginTests extends BaseTest {
 
     @Test
-    public void successfulLogIn() {
-        var basicAuthPage = mainPage.clickBasicAuthLink();
-        basicAuthPage.logIn();
-        String expectedResult = ConfigProvider.expectedCongratulationMessage;
-        Assert.assertEquals(basicAuthPage.getTextFromCongratulationMessage(),
+    public void successfulLogInTest() {
+        var secureAreaPage = mainPage.clickFormAuthenticationLink()
+                .logIn(ConfigProvider.USERNAME, ConfigProvider.PASSWORD);
+        String expectedResult = ConfigProvider.expectedMessageAfterLogIn;
+        Assert.assertEquals(secureAreaPage.getTextFromCongratulationMessage(),
                 expectedResult);
+    }
+
+    @Test
+    public void invalidUsernameLogInTest() {
+        var loginPage = mainPage.clickFormAuthenticationLink();
+        loginPage.incorrectLogIn(ConfigProvider.INVALIDUSERNAME,
+                ConfigProvider.PASSWORD);
+        String expectedResult = ConfigProvider.expectedMessageAfterInvalidUsername;
+        Assert.assertTrue(loginPage.hasTextFromErrorMessage(expectedResult));
     }
 }

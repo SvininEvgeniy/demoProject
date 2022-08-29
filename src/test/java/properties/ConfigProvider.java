@@ -12,7 +12,9 @@ public interface ConfigProvider {
     }
 
     String URL = readConfig().getString("url");
-    String LOGIN = readConfig().getString("login");
+    String USERNAME = readConfig().getString("username");
+    String INVALIDUSERNAME = readConfig().getString("invalidUsername");
     String PASSWORD = readConfig().getString("password");
-    String expectedCongratulationMessage = readConfig().getString("messages.congratulationMessageAfterLogIn");
+    String expectedMessageAfterLogIn = readConfig().getString("messages.congratulationMessageAfterLogIn");
+    String expectedMessageAfterInvalidUsername = readConfig().getString("messages.messageAfterInvalidUsername");
 }
