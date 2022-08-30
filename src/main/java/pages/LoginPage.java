@@ -1,12 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-
-import java.time.Duration;
 
 public class LoginPage {
 
@@ -37,7 +32,7 @@ public class LoginPage {
         driver.findElement(loginButton).click();
     }
 
-    public Boolean hasTextFromErrorMessage(String expectedMessage) {
+    public Boolean hasTextFromMessage(String expectedMessage) {
         return driver.findElement(errorMessage).getText().contains(expectedMessage);
     }
 

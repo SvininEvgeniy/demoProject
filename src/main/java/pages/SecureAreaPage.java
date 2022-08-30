@@ -12,6 +12,7 @@ public class SecureAreaPage {
 
     private WebDriver driver;
     private By congratulationMessage = By.className("subheader");
+    private By logOutButton = By.cssSelector("a[class*='button']");
 
     public SecureAreaPage(WebDriver driver) {
         this.driver = driver;
@@ -25,5 +26,10 @@ public class SecureAreaPage {
         fluentWait.until(ExpectedConditions.visibilityOfElementLocated(congratulationMessage));
 
         return driver.findElement(congratulationMessage).getText();
+    }
+
+    public LoginPage logOut() {
+        driver.findElement(logOutButton).click();
+        return new LoginPage(driver);
     }
 }
