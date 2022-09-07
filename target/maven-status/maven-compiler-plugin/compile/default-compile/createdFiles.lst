@@ -1,0 +1,4 @@
+pages\SecureAreaPage.class
+pages\AlertsPage.class
+pages\LoginPage.class
+pages\MainPage.class

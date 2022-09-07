@@ -1,0 +1,4 @@
+alertsTests\AlertsTests.class
+properties\ConfigProvider.class
+baseTests\BaseTest.class
+logInTests\LoginTests.class
