@@ -6,6 +6,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -21,12 +22,20 @@ public abstract class BaseTest {
 
     private WebDriver driver;
     protected MainPage mainPage;
+    private Boolean withOutBrowser = true;
 
     //setting chromedriver before each test classes
     @BeforeClass
     public void setUp() {
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+
+        //if is not needed to launch browser
+        ChromeOptions options = new ChromeOptions();
+        if (withOutBrowser) {
+            options.addArguments("--headless");
+        }
+
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         goMainPage();
     }
