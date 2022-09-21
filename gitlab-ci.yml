@@ -1,0 +1,18 @@
+image: maven:3.8-openjdk-11
+
+default:
+  tags:
+    - shellLocal
+
+stages:
+  - test
+
+Tests with Allure:
+  stage: test
+  script:
+    - mvn clean
+    - mvn test
+    - mvn allure:serve
+  artifacts:
+    paths:
+      - target\site\allure-maven-plugin\*
