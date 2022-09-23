@@ -2,7 +2,7 @@ image: maven:3.8-openjdk-11git
 
 default:
   tags:
-    - shelllocal
+    - shellLocal
 
 stages:
   - test
