@@ -1,8 +1,4 @@
-image: maven:3.8-openjdk-11git
-
-default:
-  tags:
-    - shellLocal
+image: maven:3.8-openjdk-11
 
 stages:
   - test
@@ -10,7 +6,6 @@ stages:
 Tests with Allure:
   stage: test
   script:
-    - "curl -X POST --fail -F token=TOKEN -F ref=REF_NAME https://gitlab.com/api/v4/projects/39650110/trigger/pipeline"
     - mvn clean
     - mvn test
     - mvn allure:serve
